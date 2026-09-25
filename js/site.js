@@ -79,6 +79,10 @@
       inner = '<div class="media-frame"><button class="embed-facade" data-embed="https://player.vimeo.com/video/' + vid + '?autoplay=1" aria-label="Play video' + (m.caption ? ": " + esc(m.caption) : "") + '">' +
         (m.poster ? '<img src="' + esc(url(m.poster)) + '" alt="" loading="lazy">' : "") +
         '<span class="embed-facade__play">Play</span></button></div>';
+    } else if (m.type === "googledrive" || m.type === "gdrive") {
+      var gid = String(m.id || "").replace(/[^a-zA-Z0-9_-]/g, "");
+      inner = '<div class="media-frame" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;background:#000;">' +
+        '<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" src="https://drive.google.com/file/d/' + gid + '/preview" allow="autoplay" allowfullscreen></iframe></div>';
     } else if (m.type === "beforeafter") {
       inner = '<div class="ba">' +
         '<img src="' + esc(url(m.before)) + '" alt="Before: ' + esc(m.alt) + '" loading="lazy">' +

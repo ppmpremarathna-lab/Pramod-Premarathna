@@ -153,12 +153,9 @@ window.PROJECTS = [
                      { type: "image", src: "images/projects/product-sales-videos/02.svg", alt: "Storyboard frames", caption: "Storyboard", size: "third" },
                      { type: "image", src: "images/projects/product-sales-videos/03.svg", alt: "Motion graphics frame", caption: "Motion graphics", size: "third" }
                    ]},
-      production:{ text: [ "[PLACEHOLDER: notes on the edit and motion design.]" ],
+      production:{ text: [ "Portfolio video showreel, editing, and motion design." ],
                    media: [
-                     /* Replace with your real video. Examples:
-                        { type: "youtube", id: "YOUR_VIDEO_ID", caption: "" }
-                        { type: "video", src: "videos/product-01.mp4", poster: "images/projects/product-sales-videos/cover.webp", caption: "" } */
-                     { type: "image", src: "images/projects/product-sales-videos/cover.svg", alt: "Video still", caption: "[PLACEHOLDER: replace with the video]", size: "full" }
+                     { type: "gdrive", id: "1lHjc2kxiZpcXszSgOlQ62nUEsfBhUlJW", caption: "Portfolio Video Showreel — Pramod Premarathna", size: "full" }
                    ]},
       final:     { text: [ "[PLACEHOLDER: number of videos and formats delivered.]" ] },
       outcome:   { hasResults: false, text: [ "Delivered: product videos and sales training videos, with scripts, storyboards and motion graphics." ]}
@@ -264,7 +261,7 @@ window.PROJECTS = [
     summary:   "Social media designs, event visuals, posters, digital campaigns, presentation design and brand assets.",
     role:      "Graphic Designer",
     tools:     ["[PLACEHOLDER: tools used]"],   // e.g. ["Premiere Pro", "After Effects"]
-    cover:     { src: "images/projects/graphic-design/cover.svg", alt: "Selection of graphic design work" },
+    cover:     { src: "images/projects/graphic-design/cover.jpg", alt: "Selection of graphic design work" },
     preview:   "",
     tag:       "Gallery",
     layout:    "half",
@@ -280,10 +277,10 @@ window.PROJECTS = [
       process:   { text: [ "[PLACEHOLDER]" ] },
       production:{ text: [ "Posters, social posts and event visuals." ],
                    media: [
-                     { type: "image", src: "images/projects/graphic-design/01.svg", alt: "Poster", caption: "Poster", size: "third" },
-                     { type: "image", src: "images/projects/graphic-design/02.svg", alt: "Social media design", caption: "Social media", size: "third" },
-                     { type: "image", src: "images/projects/graphic-design/03.svg", alt: "Event visual", caption: "Event visual", size: "third" },
-                     { type: "image", src: "images/projects/graphic-design/04.svg", alt: "Presentation design", caption: "Presentation design", size: "full" }
+                     { type: "image", src: "images/projects/graphic-design/01.jpg", alt: "Poster Design", caption: "Poster Design", size: "third" },
+                     { type: "image", src: "images/projects/graphic-design/02.jpg", alt: "Social Media Campaign", caption: "Social Media Campaign", size: "third" },
+                     { type: "image", src: "images/projects/graphic-design/03.jpg", alt: "Event Visual", caption: "Event Visual", size: "third" },
+                     { type: "image", src: "images/projects/graphic-design/04.jpg", alt: "Brand Design", caption: "Brand Design", size: "full" }
                    ]},
       final:     { text: [ "[PLACEHOLDER]" ] },
       outcome:   { hasResults: false, text: [ "Delivered: social media designs, event visuals, posters, digital campaign assets and presentation design." ]}
