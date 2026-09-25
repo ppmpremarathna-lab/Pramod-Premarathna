@@ -38,8 +38,9 @@
     var layout = opts.layout || p.layout || "half";
     var cls = "card card--" + layout + (p.offset && !opts.layout ? " card--offset" : "") + " reveal";
     var cats = (p.categories || []).map(catLabel).join(" · ");
+    var isFeature = (layout === "feature");
     var video = p.preview
-      ? '<video muted loop playsinline preload="none" data-src="' + esc(url(p.preview)) + '" aria-hidden="true"></video>'
+      ? '<video muted loop playsinline ' + (isFeature ? 'autoplay preload="auto" src="' + esc(url(p.preview)) + '"' : 'preload="none" data-src="' + esc(url(p.preview)) + '"') + ' aria-hidden="true"></video>'
       : "";
     return (
       '<article class="' + cls + '" data-cats="' + esc((p.categories || []).join(" ")) + '">' +

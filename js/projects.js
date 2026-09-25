@@ -52,7 +52,7 @@ window.PROJECTS = [
     role:      "Producer, Video Editor & Motion Designer",
     tools:     ["Premiere Pro", "After Effects", "DaVinci Resolve", "Audition"],
     cover:     { src: "images/projects/commercial-showreel/cover.jpg", alt: "Commercial Video and Motion Showreel" },
-    preview:   "",
+    preview:   "videos/feature-reel-loop.mp4",
     tag:       "Featured Reel",
     layout:    "feature",
     showOnHome:true,
