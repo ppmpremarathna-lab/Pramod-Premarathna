@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Admin Studio · Pramod Premarathna</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/tokens.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--ink);
+      color: var(--soft);
+      font-family: var(--f-display);
+      line-height: 1.5;
+      padding: 0 0 100px 0;
+    }
+    a { color: var(--key-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .mono { font-family: var(--f-mono); font-size: 13px; }
+    
+    /* Top Header */
+    .admin-header {
+      background: var(--graphite);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .admin-badge {
+      background: rgba(131, 144, 255, 0.15);
+      color: var(--key-light);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .admin-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .admin-actions {
+      display: flex;
+      gap: 12px;
+    }
+    
+    /* Container & Layout */
+    .admin-container {
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 900px) {
+      .admin-container { grid-template-columns: 1fr; }
+    }
+    
+    /* Sidebar Navigation */
+    .admin-sidebar {
+      background: var(--graphite);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      height: fit-content;
+    }
+    .nav-btn {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      color: var(--slate);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .nav-btn.active {
+      background: rgba(47, 69, 255, 0.2);
+      color: var(--white);
+      border-left: 3px solid var(--key-light);
+    }
+    
+    /* Main Content Card */
+    .admin-card {
+      background: var(--graphite);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .card-head {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .card-head h2 {
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .card-head p {
+      font-size: 14px;
+      color: var(--slate);
+    }
+    
+    /* Form Controls */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--soft);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    input[type="text"], input[type="email"], select, textarea {
+      width: 100%;
+      background: #0f1015;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--white);
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--key-light);
+    }
+    .hint {
+      font-size: 12px;
+      color: var(--slate);
+      margin-top: 6px;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: #1e2128;
+      color: var(--white);
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #282c35;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--key);
+      border-color: var(--key);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #4258ff;
+    }
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .btn-danger:hover {
+      background: rgba(239, 68, 68, 0.25);
+    }
+    
+    /* Live Preview Box */
+    .preview-box {
+      margin-top: 16px;
+      background: #090a0d;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .preview-video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 12px;
+      background: #000;
+    }
+    .preview-video iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    
+    /* Media Grid List */
+    .media-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .media-item {
+      background: #111317;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+    .media-item-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #000;
+    }
+    .media-item-type {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--line);
+      color: var(--soft);
+      width: fit-content;
+    }
+    .media-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    /* Success notification banner */
+    .alert-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 1000;
+    }
+    
+    /* Code Output Box */
+    .code-box {
+      background: #090a0d;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: var(--f-mono);
+      font-size: 12px;
+      color: #a5b4fc;
+      max-height: 250px;
+      overflow-y: auto;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="admin-brand">
+      <span class="admin-badge">Admin Studio</span>
+      <h1 class="admin-title">Portfolio Manager</h1>
+    </div>
+    <div class="admin-actions">
+      <a href="index.html" target="_blank" class="btn">View Live Portfolio ↗</a>
+      <button id="btnExport" class="btn btn-primary" onclick="exportProjects()">💾 Download projects.js</button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <button class="nav-btn active" onclick="switchTab('youtube')">📺 Add YouTube / Media</button>
+      <button class="nav-btn" onclick="switchTab('profile')">👤 Contact & Profile</button>
+      <button class="nav-btn" onclick="switchTab('projects')">📁 Manage Projects</button>
+      <button class="nav-btn" onclick="switchTab('export')">🚀 Export & Publish</button>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+
+      <!-- ================= TAB 1: ADD YOUTUBE & MEDIA ================= -->
+      <section id="tab-youtube" class="admin-card">
+        <div class="card-head">
+          <h2>Add Media / YouTube Video</h2>
+          <p>Embed YouTube videos, photo graphics, or self-hosted clips directly into any project.</p>
+        </div>
+
+        <form id="formMedia" onsubmit="event.preventDefault(); addMediaItem();">
+          <div class="form-group">
+            <label for="mediaProject">Select Target Project</label>
+            <select id="mediaProject" onchange="renderProjectMediaList()">
+              <!-- Options populated dynamically from projects.js -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mediaType">Media Format</label>
+            <select id="mediaType" onchange="toggleMediaFields()">
+              <option value="youtube">YouTube Video Embed (Recommended)</option>
+              <option value="image">Photo / Graphic Design</option>
+              <option value="video">Self-Hosted MP4 Video</option>
+            </select>
+          </div>
+
+          <!-- YouTube Fields -->
+          <div id="youtubeFields">
+            <div class="form-group">
+              <label for="ytUrl">YouTube Link or Video ID</label>
+              <input type="text" id="ytUrl" placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..." oninput="updateYoutubePreview()">
+              <p class="hint">Paste any regular YouTube link, Shorts link, or just the 11-character video ID.</p>
+            </div>
+            <div class="preview-box" id="ytPreviewBox" style="display:none;">
+              <span class="mono" id="ytExtractedId">Video ID: </span>
+              <div class="preview-video">
+                <iframe id="ytIframe" src="" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Fields -->
+          <div id="imageFields" style="display:none;">
+            <div class="form-group">
+              <label for="imgSrc">Image File Path</label>
+              <input type="text" id="imgSrc" placeholder="images/projects/graphic-design/cover.webp">
+              <p class="hint">Path relative to portfolio root, e.g. <code>images/projects/graphic-design/poster-01.jpg</code></p>
+            </div>
+            <div class="form-group">
+              <label for="imgAlt">Alt Text / Description</label>
+              <input type="text" id="imgAlt" placeholder="Brand campaign poster for LIMA">
+            </div>
+          </div>
+
+          <!-- MP4 Video Fields -->
+          <div id="videoFields" style="display:none;">
+            <div class="form-group">
+              <label for="vidSrc">MP4 Video Path</label>
+              <input type="text" id="vidSrc" placeholder="videos/showreel.mp4">
+            </div>
+            <div class="form-group">
+              <label for="vidPoster">Poster Thumbnail Path</label>
+              <input type="text" id="vidPoster" placeholder="images/projects/product-sales-videos/cover.svg">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mediaCaption">Caption / Title</label>
+            <input type="text" id="mediaCaption" placeholder="Commercial sales training video final cut">
+          </div>
+
+          <div class="form-group">
+            <label for="mediaSize">Display Size in Case Study</label>
+            <select id="mediaSize">
+              <option value="full">Full Width (16:9 Cinema)</option>
+              <option value="half">Half Width (2-column layout)</option>
+              <option value="third">Third Width (3-column gallery)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">➕ Add Media to Project</button>
+        </form>
+
+        <div style="margin-top:36px; padding-top:24px; border-top:1px solid var(--line);">
+          <h3 style="font-size:18px; color:var(--white); margin-bottom:12px;">Current Media in Selected Project</h3>
+          <div id="mediaListContainer" class="media-list">
+            <!-- Media items rendered here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: PROFILE & CONTACT ================= -->
+      <section id="tab-profile" class="admin-card" style="display:none;">
+        <div class="card-head">
+          <h2>Contact & Site Details</h2>
+          <p>Update your personal information shown across the portfolio and contact section.</p>
+        </div>
+
+        <form id="formProfile" onsubmit="event.preventDefault(); saveProfile();">
+          <div class="form-group">
+            <label for="profName">Full Name</label>
+            <input type="text" id="profName">
+          </div>
+
+          <div class="form-group">
+            <label for="profEmail">Public Email</label>
+            <input type="email" id="profEmail">
+          </div>
+
+          <div class="form-group">
+            <label for="profPhone">Phone / WhatsApp Number</label>
+            <input type="text" id="profPhone">
+          </div>
+
+          <div class="form-group">
+            <label for="profLinkedin">LinkedIn URL</label>
+            <input type="text" id="profLinkedin">
+          </div>
+
+          <div class="form-group">
+            <label for="profCV">CV File Path</label>
+            <input type="text" id="profCV">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Save Profile Details</button>
+        </form>
+      </section>
+
+      <!-- ================= TAB 3: MANAGE PROJECTS ================= -->
+      <section id="tab-projects" class="admin-card" style="display:none;">
+        <div class="card-head">
+          <h2>Projects Overview</h2>
+          <p>View all active projects configured in your portfolio.</p>
+        </div>
+
+        <div id="projectsOverviewList" style="display:flex; flex-direction:column; gap:12px;">
+          <!-- Rendered dynamically -->
+        </div>
+      </section>
+
+      <!-- ================= TAB 4: EXPORT & PUBLISH ================= -->
+      <section id="tab-export" class="admin-card" style="display:none;">
+        <div class="card-head">
+          <h2>Export & Publish to GitHub</h2>
+          <p>Generate your updated code and publish live to GitHub Pages.</p>
+        </div>
+
+        <div style="display:flex; gap:12px; margin-bottom:24px;">
+          <button class="btn btn-primary" onclick="exportProjects()">⬇️ Download Updated js/projects.js</button>
+          <button class="btn" onclick="copyProjectsCode()">📋 Copy Code to Clipboard</button>
+        </div>
+
+        <p class="mono" style="margin-bottom:8px; color:var(--soft);">Code Preview (js/projects.js):</p>
+        <div id="codePreview" class="code-box"></div>
+
+        <div style="margin-top:24px; padding:20px; background:#12141a; border-radius:8px; border:1px solid var(--line);">
+          <h4 style="color:var(--white); margin-bottom:8px;">How to push updates to GitHub:</h4>
+          <p style="font-size:13px; color:var(--slate); margin-bottom:12px;">Save the downloaded file into <code>js/projects.js</code>, then tell Antigravity <strong>"Update my site on GitHub"</strong> or run in your terminal:</p>
+          <pre class="code-box">git add . && git commit -m "Update portfolio media" && git push</pre>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div id="toast" class="alert-toast">Changes saved!</div>
+
+  <!-- Load current project configurations -->
+  <script src="js/projects.js"></script>
+  <script>
+    // State management
+    var siteData = window.SITE || {};
+    var projectsData = window.PROJECTS || [];
+
+    function initAdmin() {
+      // Populate project dropdown
+      var sel = document.getElementById("mediaProject");
+      sel.innerHTML = "";
+      projectsData.forEach(function(p) {
+        var opt = document.createElement("option");
+        opt.value = p.id;
+        opt.textContent = p.title + " (" + p.id + ")";
+        sel.appendChild(opt);
+      });
+
+      // Populate profile
+      document.getElementById("profName").value = siteData.name || "";
+      document.getElementById("profEmail").value = siteData.email || "";
+      document.getElementById("profPhone").value = siteData.phone || "";
+      document.getElementById("profLinkedin").value = siteData.linkedin || "";
+      document.getElementById("profCV").value = siteData.cv || "";
+
+      renderProjectMediaList();
+      renderProjectsOverview();
+      updateCodePreview();
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".nav-btn").forEach(function(b) { b.classList.remove("active"); });
+      document.querySelectorAll(".admin-main section").forEach(function(s) { s.style.display = "none"; });
+      
+      document.getElementById("tab-" + tabId).style.display = "block";
+      event.currentTarget.classList.add("active");
+      
+      if (tabId === "export") updateCodePreview();
+    }
+
+    function toggleMediaFields() {
+      var t = document.getElementById("mediaType").value;
+      document.getElementById("youtubeFields").style.display = t === "youtube" ? "block" : "none";
+      document.getElementById("imageFields").style.display = t === "image" ? "block" : "none";
+      document.getElementById("videoFields").style.display = t === "video" ? "block" : "none";
+    }
+
+    function parseYoutubeId(url) {
+      if (!url) return "";
+      var m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
+      return m ? m[1] : (url.length === 11 ? url : "");
+    }
+
+    function updateYoutubePreview() {
+      var val = document.getElementById("ytUrl").value.trim();
+      var id = parseYoutubeId(val);
+      var box = document.getElementById("ytPreviewBox");
+      var iframe = document.getElementById("ytIframe");
+      var ext = document.getElementById("ytExtractedId");
+
+      if (id) {
+        box.style.display = "block";
+        ext.textContent = "Extracted Video ID: " + id;
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + id;
+      } else {
+        box.style.display = "none";
+        iframe.src = "";
+      }
+    }
+
+    function addMediaItem() {
+      var projId = document.getElementById("mediaProject").value;
+      var type = document.getElementById("mediaType").value;
+      var caption = document.getElementById("mediaCaption").value.trim();
+      var size = document.getElementById("mediaSize").value;
+
+      var proj = projectsData.find(function(p) { return p.id === projId; });
+      if (!proj) return;
+
+      if (!proj.caseStudy) proj.caseStudy = {};
+      if (!proj.caseStudy.production) proj.caseStudy.production = { text: [], media: [] };
+      if (!proj.caseStudy.production.media) proj.caseStudy.production.media = [];
+
+      var newItem = null;
+      if (type === "youtube") {
+        var id = parseYoutubeId(document.getElementById("ytUrl").value.trim());
+        if (!id) { alert("Please provide a valid YouTube link or ID"); return; }
+        newItem = { type: "youtube", id: id, caption: caption, size: size };
+      } else if (type === "image") {
+        var src = document.getElementById("imgSrc").value.trim();
+        var alt = document.getElementById("imgAlt").value.trim();
+        if (!src) { alert("Please enter an image path"); return; }
+        newItem = { type: "image", src: src, alt: alt, caption: caption, size: size };
+      } else if (type === "video") {
+        var vid = document.getElementById("vidSrc").value.trim();
+        var poster = document.getElementById("vidPoster").value.trim();
+        if (!vid) { alert("Please enter a video path"); return; }
+        newItem = { type: "video", src: vid, poster: poster, caption: caption };
+      }
+
+      if (newItem) {
+        proj.caseStudy.production.media.push(newItem);
+        showToast("Added to " + proj.title + "!");
+        document.getElementById("formMedia").reset();
+        document.getElementById("ytPreviewBox").style.display = "none";
+        renderProjectMediaList();
+        updateCodePreview();
+      }
+    }
+
+    function deleteMedia(projId, index) {
+      var proj = projectsData.find(function(p) { return p.id === projId; });
+      if (proj && proj.caseStudy && proj.caseStudy.production && proj.caseStudy.production.media) {
+        proj.caseStudy.production.media.splice(index, 1);
+        showToast("Media item removed");
+        renderProjectMediaList();
+        updateCodePreview();
+      }
+    }
+
+    function renderProjectMediaList() {
+      var projId = document.getElementById("mediaProject").value;
+      var proj = projectsData.find(function(p) { return p.id === projId; });
+      var list = document.getElementById("mediaListContainer");
+      list.innerHTML = "";
+
+      if (!proj || !proj.caseStudy || !proj.caseStudy.production || !proj.caseStudy.production.media || !proj.caseStudy.production.media.length) {
+        list.innerHTML = "<p style='color:var(--slate); font-size:14px; grid-column:1/-1;'>No media items added to this project yet.</p>";
+        return;
+      }
+
+      proj.caseStudy.production.media.forEach(function(m, idx) {
+        var div = document.createElement("div");
+        div.className = "media-item";
+        
+        var thumb = "";
+        if (m.type === "youtube") {
+          thumb = "<img class='media-item-thumb' src='https://i.ytimg.com/vi/" + m.id + "/hqdefault.jpg' alt=''>";
+        } else if (m.type === "image") {
+          thumb = "<img class='media-item-thumb' src='" + m.src + "' alt='" + (m.alt || "") + "'>";
+        } else {
+          thumb = "<div class='media-item-thumb' style='display:flex;align-items:center;justify-content:center;color:#fff;'>🎥 Video File</div>";
+        }
+
+        div.innerHTML = thumb +
+          "<span class='media-item-type'>" + m.type.toUpperCase() + " · " + (m.size || "default") + "</span>" +
+          "<div class='media-item-title'>" + (m.caption || m.id || m.src) + "</div>" +
+          "<button type='button' class='btn btn-danger' style='padding:6px 12px;font-size:12px;' onclick='deleteMedia(\"" + projId + "\", " + idx + ")'>Remove</button>";
+        
+        list.appendChild(div);
+      });
+    }
+
+    function renderProjectsOverview() {
+      var container = document.getElementById("projectsOverviewList");
+      container.innerHTML = "";
+      projectsData.forEach(function(p) {
+        var card = document.createElement("div");
+        card.style.cssText = "background:#111317; border:1px solid var(--line); border-radius:8px; padding:16px; display:flex; justify-content:space-between; align-items:center;";
+        card.innerHTML = "<div>" +
+          "<strong style='color:#fff; font-size:16px; display:block;'>" + p.title + "</strong>" +
+          "<span style='color:var(--slate); font-size:13px;'>" + p.id + " · " + (p.categories || []).join(", ") + "</span>" +
+          "</div>" +
+          "<span class='admin-badge'>" + (p.layout || "half") + "</span>";
+        container.appendChild(card);
+      });
+    }
+
+    function saveProfile() {
+      siteData.name = document.getElementById("profName").value.trim();
+      siteData.email = document.getElementById("profEmail").value.trim();
+      siteData.phone = document.getElementById("profPhone").value.trim();
+      siteData.linkedin = document.getElementById("profLinkedin").value.trim();
+      siteData.cv = document.getElementById("profCV").value.trim();
+      showToast("Profile details updated!");
+      updateCodePreview();
+    }
+
+    function generateCode() {
+      return "/* ==========================================================================\n" +
+        "   YOUR CONTENT FILE (Generated by Admin Studio)\n" +
+        "   ========================================================================== */\n\n" +
+        "window.SITE = " + JSON.stringify(siteData, null, 2) + ";\n\n" +
+        "window.CATEGORIES = " + JSON.stringify(window.CATEGORIES || [], null, 2) + ";\n\n" +
+        "window.PROJECTS = " + JSON.stringify(projectsData, null, 2) + ";\n";
+    }
+
+    function updateCodePreview() {
+      var box = document.getElementById("codePreview");
+      if (box) box.textContent = generateCode();
+    }
+
+    function exportProjects() {
+      var code = generateCode();
+      var blob = new Blob([code], { type: "text/javascript" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "projects.js";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast("projects.js downloaded!");
+    }
+
+    function copyProjectsCode() {
+      navigator.clipboard.writeText(generateCode()).then(function() {
+        showToast("Code copied to clipboard!");
+      });
+    }
+
+    function showToast(msg) {
+      var t = document.getElementById("toast");
+      t.textContent = msg;
+      t.style.display = "block";
+      setTimeout(function() { t.style.display = "none"; }, 2500);
+    }
+
+    window.addEventListener("DOMContentLoaded", initAdmin);
+  </script>
+</body>
+</html>
