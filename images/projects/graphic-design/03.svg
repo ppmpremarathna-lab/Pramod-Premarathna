@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
-<rect width="1200" height="1500" fill="#24211F"/>
-<rect x="24" y="24" width="1152" height="1452" fill="none" stroke="#FFFFFF" stroke-opacity=".08"/>
-<line x1="24" y1="750.0" x2="1176" y2="750.0" stroke="#FFFFFF" stroke-opacity=".05"/>
-<line x1="600.0" y1="24" x2="600.0" y2="1476" stroke="#FFFFFF" stroke-opacity=".05"/>
-<circle cx="600.0" cy="750.0" r="72" fill="none" stroke="#8B909A" stroke-opacity=".7" stroke-width="2"/>
-<text x="48" y="1422" font-family="Menlo, Consolas, monospace" font-size="20" fill="#FAFAF8" fill-opacity=".85" letter-spacing="2">EVENT VISUAL</text>
-<text x="48" y="1452" font-family="Menlo, Consolas, monospace" font-size="13" fill="#8B909A">Placeholder · replace images/projects/graphic-design/03</text>
-</svg>

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
-<rect width="1080" height="1350" fill="#1A2220"/>
-<rect x="24" y="24" width="1032" height="1302" fill="none" stroke="#FFFFFF" stroke-opacity=".08"/>
-<line x1="24" y1="675.0" x2="1056" y2="675.0" stroke="#FFFFFF" stroke-opacity=".05"/>
-<line x1="540.0" y1="24" x2="540.0" y2="1326" stroke="#FFFFFF" stroke-opacity=".05"/>
-<circle cx="540.0" cy="675.0" r="65" fill="none" stroke="#8B909A" stroke-opacity=".7" stroke-width="2"/>
-<text x="48" y="1272" font-family="Menlo, Consolas, monospace" font-size="18" fill="#FAFAF8" fill-opacity=".85" letter-spacing="2">SOCIAL POST 1</text>
-<text x="48" y="1302" font-family="Menlo, Consolas, monospace" font-size="13" fill="#8B909A">Placeholder · replace images/projects/lima-electric-bike/03</text>
-</svg>

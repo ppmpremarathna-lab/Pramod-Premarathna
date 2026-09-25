@@ -50,6 +50,7 @@
       <a class="nav__logo" href="#top" aria-label="Pramod, back to top">PRAMOD</a>
       <nav aria-label="Main">
         <ul class="nav__links">
+          <li><a href="#showreel">Showreel</a></li>
           <li><a href="#work">Work</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -66,6 +67,7 @@
   <div class="menu" id="menu" hidden>
     <div class="menu__top"><span class="nav__logo">PRAMOD</span><button class="nav__toggle" style="display:block" type="button" data-close>Close</button></div>
     <ul class="menu__links">
+      <li><a href="#showreel">Showreel</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -91,8 +93,8 @@
           <div class="hero__aside">
             <p class="hero__statement">I create visual experiences, digital content and learning solutions that turn complex ideas into clear and engaging stories.</p>
             <div class="hero__ctas">
-              <a class="btn btn--primary magnetic" href="#work">View my work <span class="arrow" aria-hidden="true">→</span></a>
-              <a class="btn magnetic" href="#about">About me</a>
+              <a class="btn btn--primary magnetic" href="#showreel"><span class="play-icon" aria-hidden="true" style="margin-right:6px">▶</span> Watch Showreel</a>
+              <a class="btn magnetic" href="#work">Selected Work <span class="arrow" aria-hidden="true">→</span></a>
               <a class="btn magnetic" data-site="cv" href="cv/Pramod-Premarathna-CV.pdf" target="_blank" rel="noopener">Download CV</a>
             </div>
           </div>
@@ -108,6 +110,48 @@
             </div>
           </div>
           <div class="timeline-caption mono"><span>Design · Video · Learning, on one timeline</span><span>Select a clip to open the project</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED SHOWREEL ================= -->
+    <section class="section section--reel" id="showreel" aria-labelledby="reel-title">
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom:28px">
+          <p class="section-head__label mono">Featured Reel · Auto-Loop &amp; Cinema</p>
+          <h2 class="section-head__title" id="reel-title">Commercial Video &amp; Motion Showreel</h2>
+          <p class="section-head__lede">A high-impact compilation of commercial video directing, cinematography supervision, editing, DaVinci Resolve colour grading, and motion graphics for TVCs and brand campaigns.</p>
+        </div>
+
+        <div class="reel-cinema">
+          <div class="reel-cinema__player" id="cinema-player">
+            <!-- Auto-Looping Cinematic Teaser -->
+            <div class="reel-cinema__loop-wrap" id="loop-wrap">
+              <video class="reel-cinema__video" autoplay muted loop playsinline preload="auto" poster="images/projects/commercial-showreel/cover.jpg">
+                <source src="videos/feature-reel-loop.mp4" type="video/mp4">
+              </video>
+              <div class="reel-cinema__overlay">
+                <button class="btn btn--primary btn--play-reel" type="button" id="play-full-reel" aria-label="Play Master Portfolio Reel in Full High Definition">
+                  <span class="play-icon" aria-hidden="true" style="margin-right:6px">▶</span> Play Master Reel (HD)
+                </button>
+                <p class="mono reel-cinema__badge">Auto-Loop Teaser · Click to switch to Master Full Reel with Audio</p>
+              </div>
+            </div>
+            <!-- Full Interactive Google Drive Player -->
+            <div class="reel-cinema__embed-wrap" id="embed-wrap" hidden>
+              <iframe id="cinema-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              <button class="btn reel-cinema__back" type="button" id="close-full-reel" aria-label="Back to Auto-Loop Preview">
+                <span>← Back to Auto-Loop</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="reel-cinema__footer">
+            <div class="reel-cinema__tags mono">
+              <span>CDB Gold Loan TVC</span><span>Singer Sri Lanka</span><span>Falcon TVC</span><span>Hemas Brand</span><span>Phoenix</span><span>DaVinci Resolve</span>
+            </div>
+            <a class="btn magnetic" href="projects/commercial-showreel/">Explore Showreel Case Study <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
     </section>

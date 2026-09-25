@@ -67,7 +67,12 @@
     var cap = m.caption ? '<figcaption>' + txt(m.caption) + "</figcaption>" : "";
     var inner = "";
     if (m.type === "video") {
-      inner = '<div class="media-frame"><video controls playsinline preload="none"' +
+      var vAttrs = "controls playsinline";
+      if (m.loop) vAttrs += " autoplay muted loop";
+      else if (m.autoplay) vAttrs += " autoplay";
+      if (m.muted && !m.loop) vAttrs += " muted";
+      var pl = m.preload ? esc(m.preload) : (m.loop ? "auto" : "none");
+      inner = '<div class="media-frame"><video ' + vAttrs + ' preload="' + pl + '"' +
         (m.poster ? ' poster="' + esc(url(m.poster)) + '"' : "") + ' src="' + esc(url(m.src)) + '"></video></div>';
     } else if (m.type === "youtube") {
       var id = ytId(m.id);
@@ -359,6 +364,31 @@
   document.addEventListener("input", function (e) {
     if (e.target.matches(".ba input")) e.target.closest(".ba").style.setProperty("--pos", e.target.value + "%");
   });
+
+  /* ---------- Feature Reel Cinema Player ---------- */
+  var playBtn = document.getElementById("play-full-reel");
+  var closeBtn = document.getElementById("close-full-reel");
+  var loopWrap = document.getElementById("loop-wrap");
+  var embedWrap = document.getElementById("embed-wrap");
+  var cinemaIframe = document.getElementById("cinema-iframe");
+  if (playBtn && embedWrap && loopWrap && cinemaIframe) {
+    playBtn.addEventListener("click", function () {
+      cinemaIframe.src = "https://drive.google.com/file/d/1lHjc2kxiZpcXszSgOlQ62nUEsfBhUlJW/preview?autoplay=1";
+      loopWrap.hidden = true;
+      embedWrap.hidden = false;
+      var loopVid = loopWrap.querySelector("video");
+      if (loopVid) loopVid.pause();
+    });
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        embedWrap.hidden = true;
+        loopWrap.hidden = false;
+        cinemaIframe.src = "";
+        var loopVid = loopWrap.querySelector("video");
+        if (loopVid) loopVid.play();
+      });
+    }
+  }
 
   window.PF.refresh = function (root) { observeReveals(); bindMedia(root); };
 })();
