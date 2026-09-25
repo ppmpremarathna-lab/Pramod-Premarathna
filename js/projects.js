@@ -25,8 +25,8 @@
 ---------------------------------------------------------------------------- */
 window.SITE = {
   name:      "Pramod Premarathna",
-  email:     "[PLACEHOLDER]@yourdomain.com",                 // your public email
-  phone:     "[PLACEHOLDER: +94 XX XXX XXXX]",               // your contact number / WhatsApp
+  email:     "ppm.pemarathna@gmail.com",                     // your public email
+  phone:     "+94 77 876 3040",                              // your contact number / WhatsApp
   linkedin:  "https://www.linkedin.com/in/[PLACEHOLDER]/",   // your LinkedIn URL
   cv:        "cv/Pramod-Premarathna-CV.pdf"                  // replace this PDF with your CV
 };
