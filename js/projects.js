@@ -107,10 +107,10 @@ window.PROJECTS = [
                    ]},
       production:{ text: [ "Brand identity, logo, brand guidelines, LMS interface visuals, launch event visuals, animations and promotional materials." ],
                    media: [
+                     { type: "gdrive", id: "1AwXF_3i_4IQQ_TqB7ySzKgYbSsxscuK6", caption: "SELFY Motion Graphics & Animation", size: "full" },
                      { type: "image", src: "images/projects/selfy-lms/03.svg", alt: "LMS platform screens", caption: "LMS platform", size: "full" },
-                     { type: "image", src: "images/projects/selfy-lms/04.svg", alt: "Launch event visuals", caption: "Launch event", size: "third" },
-                     { type: "image", src: "images/projects/selfy-lms/05.svg", alt: "Animation frames", caption: "Animations", size: "third" },
-                     { type: "image", src: "images/projects/selfy-lms/06.svg", alt: "Promotional material", caption: "Promotional materials", size: "third" }
+                     { type: "image", src: "images/projects/selfy-lms/04.svg", alt: "Launch event visuals", caption: "Launch event", size: "half" },
+                     { type: "image", src: "images/projects/selfy-lms/06.svg", alt: "Promotional material", caption: "Promotional materials", size: "half" }
                    ]},
       final:     { text: [ "[PLACEHOLDER: describe the final launch package.]" ],
                    media: [
@@ -193,9 +193,9 @@ window.PROJECTS = [
                      { type: "image", src: "images/projects/lima-electric-bike/01.svg", alt: "Concept frame", caption: "Concept", size: "half" },
                      { type: "image", src: "images/projects/lima-electric-bike/02.svg", alt: "Production still", caption: "Production", size: "half" }
                    ]},
-      production:{ text: [ "[PLACEHOLDER]" ],
+      production:{ text: [ "LIMA electric bike video production and vintage color grade." ],
                    media: [
-                     { type: "image", src: "images/projects/lima-electric-bike/cover.svg", alt: "Final film still", caption: "[PLACEHOLDER: replace with the final video — YouTube, Vimeo or MP4]", size: "full" }
+                     { type: "gdrive", id: "1XJhkzH7-1uLjaMOiYoCMltgX4zjAg0Tf", caption: "LIMA Electric Bike — Vintage Transformation Commercial", size: "full" }
                    ]},
       final:     { text: [ "[PLACEHOLDER: final film and social cut-downs.]" ],
                    media: [
@@ -280,13 +280,54 @@ window.PROJECTS = [
                      { type: "image", src: "images/projects/graphic-design/01.jpg", alt: "Poster Design", caption: "Poster Design", size: "third" },
                      { type: "image", src: "images/projects/graphic-design/02.jpg", alt: "Social Media Campaign", caption: "Social Media Campaign", size: "third" },
                      { type: "image", src: "images/projects/graphic-design/03.jpg", alt: "Event Visual", caption: "Event Visual", size: "third" },
-                     { type: "image", src: "images/projects/graphic-design/04.jpg", alt: "Brand Design", caption: "Brand Design", size: "full" }
+                     { type: "image", src: "images/projects/graphic-design/04.jpg", alt: "Brand Design", caption: "Brand Design", size: "half" },
+                     { type: "image", src: "images/projects/graphic-design/05.jpg", alt: "Creative Visual", caption: "Campaign Poster", size: "half" },
+                     { type: "image", src: "images/projects/graphic-design/06.jpg", alt: "Digital Graphic", caption: "Digital Art", size: "third" },
+                     { type: "image", src: "images/projects/graphic-design/07.jpg", alt: "Commercial Creative", caption: "Commercial Visual", size: "third" },
+                     { type: "image", src: "images/projects/graphic-design/08.jpg", alt: "Corporate Poster", caption: "Corporate Graphic", size: "third" }
                    ]},
-      final:     { text: [ "[PLACEHOLDER]" ] },
+      final:     { text: [ "Comprehensive graphic design suite across print and digital media." ] },
       outcome:   { hasResults: false, text: [ "Delivered: social media designs, event visuals, posters, digital campaign assets and presentation design." ]}
     }
-  }
+  },
 
-  /* To add PROJECT 06, paste a copied block above this line
-     (remember the comma after the previous block's closing brace). */
+  /* ======================================================================
+     PROJECT 06 — NEWSPAPER ARTICLES & PRESS FEATURES
+     ====================================================================== */
+  {
+    id:        "newspaper-articles",
+    title:     "Newspaper Articles & Press",
+    subtitle:  "Published editorial features and newspaper spreads",
+    categories:["other", "brand"],
+    tracks:    ["design"],
+    year:      "2023 – 2026",
+    client:    "Mawbima & National Press",
+    summary:   "Collection of published editorial features, newspaper articles, and journalistic layouts.",
+    role:      "Writer & Visual Contributor",
+    tools:     ["Editorial Design", "Journalism", "Print Production"],
+    cover:     { src: "images/projects/newspaper-articles/cover.jpg", alt: "Mawbima Newspaper Feature Article" },
+    preview:   "",
+    tag:       "Press",
+    layout:    "large",
+    showOnHome:true,
+
+    caseStudy: {
+      overview:  { text: [ "A curated collection of published national newspaper articles and editorial spreads featured in Mawbima and mainstream media.", "Covering industry developments, technology, cultural commentary, and educational perspectives." ]},
+      challenge: { text: [ "Creating impactful print articles that convey meaningful narratives while fitting demanding national newspaper print deadlines and formatting standards." ]},
+      objective: { text: [ "Deliver engaging, informative press features for a nationwide readership." ]},
+      approach:  { text: [ "Combining thoughtful storytelling with strong headline structure and compelling editorial layout." ]},
+      role:      { text: [ "Researched, authored, and coordinated editorial layout and imagery for publication." ]},
+      process:   { text: [ "Research → Drafting → Editorial review → Print layout → Publication." ] },
+      production:{ text: [ "Published national newspaper articles and spreads." ],
+                   media: [
+                     { type: "image", src: "images/projects/newspaper-articles/cover.jpg", alt: "Mawbima Newspaper Article 01", caption: "Mawbima Feature Article", size: "half" },
+                     { type: "image", src: "images/projects/newspaper-articles/01.jpg", alt: "Mawbima Article Spread", caption: "Editorial Spread", size: "half" },
+                     { type: "image", src: "images/projects/newspaper-articles/02.jpg", alt: "Newspaper Publication Page", caption: "Published Article", size: "third" },
+                     { type: "image", src: "images/projects/newspaper-articles/03.jpg", alt: "Press Feature Section", caption: "Press Feature", size: "third" },
+                     { type: "image", src: "images/projects/newspaper-articles/04.jpg", alt: "Newspaper Column", caption: "National Press Feature", size: "third" }
+                   ]},
+      final:     { text: [ "Archive of published editorial features." ] },
+      outcome:   { hasResults: true, text: [ "Published across nationwide print editions with wide public readership." ]}
+    }
+  }
 ];
