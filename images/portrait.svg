@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+<rect width="800" height="1000" fill="#C9CBC5"/>
+<rect x="24" y="24" width="752" height="952" fill="none" stroke="#0D0E11" stroke-opacity=".08"/>
+<line x1="24" y1="500.0" x2="776" y2="500.0" stroke="#0D0E11" stroke-opacity=".05"/>
+<line x1="400.0" y1="24" x2="400.0" y2="976" stroke="#0D0E11" stroke-opacity=".05"/>
+<circle cx="400.0" cy="500.0" r="48" fill="none" stroke="#2F45FF" stroke-opacity=".7" stroke-width="2"/>
+<text x="48" y="922" font-family="Menlo, Consolas, monospace" font-size="18" fill="#0D0E11" fill-opacity=".85" letter-spacing="2">PORTRAIT</text>
+<text x="48" y="952" font-family="Menlo, Consolas, monospace" font-size="13" fill="#8B909A">Placeholder · replace images/portrait</text>
+</svg>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- EDIT: replace yourdomain.com with your real domain. Add a <url> line for each new project. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.yourdomain.com/</loc></url>
+  <url><loc>https://www.yourdomain.com/projects/selfy-lms/</loc></url>
+  <url><loc>https://www.yourdomain.com/projects/product-sales-videos/</loc></url>
+  <url><loc>https://www.yourdomain.com/projects/lima-electric-bike/</loc></url>
+  <url><loc>https://www.yourdomain.com/projects/learning-development/</loc></url>
+  <url><loc>https://www.yourdomain.com/projects/graphic-design/</loc></url>
+</urlset>

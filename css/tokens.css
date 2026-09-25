@@ -1,0 +1,33 @@
+/* =========================================================
+   DESIGN TOKENS
+   Change colours, fonts and spacing for the whole site here.
+   ========================================================= */
+:root {
+  /* Colour */
+  --ink:        #0D0E11;  /* page background (dark)          */
+  --graphite:   #17191E;  /* panels, timeline                */
+  --line:       #2A2D34;  /* hairlines on dark               */
+  --slate:      #8B909A;  /* secondary text on dark          */
+  --soft:       #C9CCD2;  /* body text on dark               */
+  --paper:      #EDEEEA;  /* light section background        */
+  --paper-line: #C9CBC5;  /* hairlines on paper              */
+  --paper-soft: #3A3E46;  /* body text on paper              */
+  --paper-mute: #555A63;  /* secondary text on paper         */
+  --white:      #FAFAF8;
+  --key:        #2F45FF;  /* accent: buttons, links on paper */
+  --key-light:  #8390FF;  /* accent: links on dark           */
+
+  /* Type */
+  --f-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --f-serif:   "Newsreader", Georgia, "Times New Roman", serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Layout */
+  --max:    1320px;
+  --gutter: clamp(20px, 4vw, 48px);
+  --gap:    clamp(16px, 2vw, 24px);
+  --section: clamp(80px, 11vw, 160px);
+
+  /* Motion */
+  --ease: cubic-bezier(.2, .7, .1, 1);
+}

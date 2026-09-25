@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#1B1E2A"/>
+<rect x="24" y="24" width="1552" height="952" fill="none" stroke="#FFFFFF" stroke-opacity=".08"/>
+<line x1="24" y1="500.0" x2="1576" y2="500.0" stroke="#FFFFFF" stroke-opacity=".05"/>
+<line x1="800.0" y1="24" x2="800.0" y2="976" stroke="#FFFFFF" stroke-opacity=".05"/>
+<circle cx="800.0" cy="500.0" r="60" fill="none" stroke="#2F45FF" stroke-opacity=".7" stroke-width="2"/>
+<text x="48" y="922" font-family="Menlo, Consolas, monospace" font-size="26" fill="#FAFAF8" fill-opacity=".85" letter-spacing="2">PROMOTIONAL MATERIALS</text>
+<text x="48" y="952" font-family="Menlo, Consolas, monospace" font-size="16" fill="#8B909A">Placeholder · replace images/projects/selfy-lms/06</text>
+</svg>
