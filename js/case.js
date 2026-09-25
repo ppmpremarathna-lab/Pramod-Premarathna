@@ -68,7 +68,8 @@
       if (rel.length < 2) rel = rel.concat(PROJECTS.filter(function (x) { return x.id !== p.id && rel.indexOf(x) < 0; }));
       body = '<div class="work-grid" style="margin-top:32px">' + rel.slice(0, 2).map(function (x) { return PF.cardHTML(x, { layout: "half" }); }).join("") + "</div>";
     } else {
-      var text = block.text || ["[PLACEHOLDER]"];
+      var text = block.text || [];
+      if (!text.length && (!block.media || !block.media.length)) return;
       body = '<div class="chapter__text">' + text.map(function (t) { return "<p>" + PF.txt(t) + "</p>"; }).join("") + "</div>";
       if (block.media && block.media.length) body += '<div class="gallery">' + block.media.map(PF.mediaHTML).join("") + "</div>";
     }
